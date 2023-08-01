@@ -1,32 +1,40 @@
+<div >
 <%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <% invalid = post.errors.include?(:title) %>
+    <%= form.text_field :title ,class:"form-control" ,placeholder: "Title"  %>
+    <% if invalid%>
+    <p style="color:red" >
+     <%= post.errors.full_messages_for(:title).join(",") %>
+     </p>
+     <% end %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="mb-3">
+    <% invalid = post.errors.include?(:description) %>
+    <%= form.text_field :description ,class:"form-control" ,placeholder: "description"  %>
+    <% if invalid%>
+    <p style="color:red" >
+     <%= post.errors.full_messages_for(:description).join(",") %>
+     </p>
+     <% end %>
   </div>
 
-  <div>
-    <%= form.label :keyword, style: "display: block" %>
-    <%= form.text_field :keyword %>
+  <div class="mb-3">
+    <% invalid = post.errors.include?(:keyword) %>
+    <%= form.text_field :keyword ,class:"form-control" ,placeholder: "keyword"  %>
+    <% if invalid%>
+    <p style="color:red" >
+     <%= post.errors.full_messages_for(:keyword).join(",") %>
+     </p>
+     <% end %>
+     <br/>
+     <%= form.file_field :images , multiple:true ,class:'btn btn-primary ' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="action">
+    <%= form.submit  class:'btn btn-secondary col-12'%>
   </div>
 <% end %>
+</div>

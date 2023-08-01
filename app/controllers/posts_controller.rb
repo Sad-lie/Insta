@@ -4,10 +4,15 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html # Add this line to enforce HTML format
+      format.json { render json: @posts }
+    end
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
@@ -65,6 +70,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description, :keyword)
+      params.require(:post).permit(:title, :description, :keyword , images: [])
     end
 end

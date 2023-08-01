@@ -1,0 +1,107 @@
+/* Navbar styles */
+
+/* Reset default margins and paddings for the navbar */
+.navbar {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #44474a;
+    padding: 10px;
+  }
+
+  .nav-pills {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
+
+  /* Position the "Home" link */
+  .navbar-brand {
+    flex: 0 0 15%;
+  }
+
+  /* Collapse the navbar items into a button on smaller screens */
+  @media screen and (max-width: 768px) {
+    .navbar-brand {
+      font-size: 18px;
+    }
+
+    .nav-pills {
+      position: absolute;
+      top: 100%; /* Position the navigation items below the button */
+      right: 0; /* Align the navigation items to the right */
+      z-index: 1;
+      flex-direction: column;
+      padding-top: 50px; /* Height of the collapsed button */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #f8f9fa; /* Set the background color for the navigation items */
+
+    }
+
+    .nav-item {
+      margin-right: 0;
+    }
+
+    .navbar-brand,
+    .nav-item {
+      flex-basis: 100%;
+    }
+
+    .navbar-brand::before,
+    .navbar-brand::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 2px;
+
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand::before {
+      left: 0;
+    }
+
+    .navbar-brand::after {
+      right: 0;
+    }
+
+    #navbar-collapse:checked ~ .nav-pills {
+      max-height: 200px; /* Adjust the height as needed */
+      padding-top: 0;
+    }
+
+    #navbar-collapse:checked ~ .navbar-brand::before {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    #navbar-collapse:checked ~ .navbar-brand::after {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }

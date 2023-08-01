@@ -1,16 +1,63 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
   <head>
-    <title>Insta</title>
+    <title>Linktreeclone</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="body.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+  <%=render "layouts/navbar" %>
+
+  <div class="container">
+  <ul class="horizontal-list">
+  <div class="side-div">With this code, the three divs should be displayed side by side properly on larger screens and stack on smaller screens. Please make sure you've correctly linked the styles.css file in your HTML, and if there are any other conflicting CSS rules, you might need to resolve those conflicts as well</div>
+  <div class="middle-div">With this code, the three divs should be displayed side by side properly on larger screens and stack on smaller screens. Please make sure you've correctly linked the styles.css file in your HTML, and if there are any other conflicting CSS rules, you might need to resolve those conflicts as well</div>
+  <div class="side-div">With this code, the three divs should be displayed side by side properly on larger screens and stack on smaller screens. Please make sure you've correctly linked the styles.css file in your HTML, and if there are any other conflicting CSS rules, you might need to resolve those conflicts as well</div>
+</ul>
+</div>
+
+<%= yield %>
+
   </body>
 </html>
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Linktreeclone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "body", media: "all", "data-turbolinks-track": "reload" %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render "layouts/navbar" %>
+   <div class="skeleton">
+    <div class="container">
+      <div class="side-div"><p>In twilight's hush, stars alight,Whispered dreams, a wondrous sight.Through thoughts' labyrinth, I roam,Seeking maps to lead me home.</p><p>The moon, a dancer on the waves,
+A symphony, as raindrops play.
+Each step I take, shadows cower,
+In my light, they lose their power.</p>
+</div>
+      <div class="middle-div"><%= yield %></div>
+      <div class="side-div"><p>Time's weaver, tales of old unfold,History's tapestry, stories untold.In gardens of hope, flowers bloom,Embracing life's endless room.</p><p>The wind, a messenger of yore,Carries secrets to distant shores.Sunset's spectacle, the world awaits,Painting skies with vibrant palettes.</p> <p>Beneath stars' gaze, I find my place,In the unknown, I seek embrace.Life's mystery, a captivating art,In its enigma, I find my heart.</p></div>
+    </div>
+    </div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<%= render "layouts/footer" %>
+
+  </body>
+</html>
+
+

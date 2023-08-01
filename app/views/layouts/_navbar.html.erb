@@ -1,0 +1,38 @@
+<nav class="navbar">
+
+  <%= link_to "Home",root_path , class:"navbar-brand" %>
+  <ul class="nav-pills">
+    <li class="nav-item">
+      <%= link_to "Posts",new_post_path , class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Sign up",new_user_registration_path , class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Sign in",new_user_session_path , class:"nav-link" %>
+    </li>
+     <li class="nav-item">
+      <%= link_to "Sign out",destroy_user_session_path, method: :delete , class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Edit profile",edit_user_registration_path , class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Social</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Community</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Personal</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Favourite</a>
+    </li>
+
+  </ul>
+</nav>
+
+
+
+

@@ -1,17 +1,21 @@
-<div id="<%= dom_id post %>">
+<div id="<%= dom_id post %>"class="post-holder">
   <p>
-    <strong>Title:</strong>
     <%= post.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
     <%= post.description %>
   </p>
 
   <p>
-    <strong>Keyword:</strong>
     <%= post.keyword %>
   </p>
+  <p>
+ <%= link_to "", post, class:"post-link" %>
+ </p>
+ <% post.images.each do |image| %>
+  <%= image_tag(image, style: "object-fit: cover; width: 300px; height: 600px;") %>
+<% end if post.images.present? %>
 
 </div>
+
